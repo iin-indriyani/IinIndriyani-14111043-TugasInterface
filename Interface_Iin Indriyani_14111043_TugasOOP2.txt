@@ -1,0 +1,57 @@
+Interface
+- Interface adalah wadah dari kumpulan method yang bersifat abstrak atau tidak memiliki implementasi.
+Sedangkan method yang didefinisikan di dalam interface tersebut akan diimplementasikan oleh class 
+yang mengimplementasikan interface tersebut. Interface merupakan bentuk perluasan dari kelas abstrak.
+- Selain method, interface juga dapat berisi sekumpulan variable, namun variable yang dideklarasikan 
+di dalam interface harus bersifat final(nilainya tidak dapat diubah /konstan).
+- Sebagai contoh : Dalam kehidupan nyata dapat diketahui ada manusia yang bekerja sebagai tentara, 
+penyanyi, pengacara, dan sebagainya, tentunya manusia-manusia tersebut selain harus memiliki method 
+standard sebagai seorang manusia, juga harus memiliki method yang sesuai dengan pekerjaannya. Dengan 
+demikian untuk membuat objek manusia yang bekerja sebagai penyanyi, harus dibuat kelas yang merupakan
+turunan kelas manusia yang meng-implementasikan interface penyanyi.
+
+- Method interface tidak punya tubuh, sebuah interface hanya dapat mendefinisikan konstanta dan 
+interface tidak langsung mewariskan hubungan dengan class istimewa lainnya, mereka didefinisikan 
+secara independent.
+- Tidak bisa membuat instance atau objek baru dari sebuah interface.
+- Ciri umum lain adalah baik interface maupun class dapat mendefinisikan method. Bagaimanapun, sebuah 
+interface tidak punya sebuah kode implementasi sedangkan class memiliki salah satunya.
+-Secara sederhananya interface adalah sebuah class yang bersifat abstract, semua methodnya public 
+dan abstract, dan semua variabel yang ada dalam interface ini bersifat static final. Sintaks dasar 
+dari interface seperti dibawah ini.
+
+public interface Lampu{
+    void setOn();
+    void setOff();
+}
+
+Setelah itu, buat class LampuPijar yang mengimplementasikan method-method yang ada di dalam interface 
+tersebut, seperti berikut ini
+
+package com.wordpress.bmadi.moreinterface;
+public class LampuPijar implements Lampu{
+    public void setOn(){
+        System.out.println("Interface on : Lampu Nyala!");        
+    }
+    
+    public void setOff(){    
+        System.out.println("Interface off : Lampu Padam!");
+    }
+}
+
+Kemudian buat class DemoLampu yang akan digunakan untuk mengakses kedua kode program diatas dan 
+menginstansiasi, seperti berikut ini
+
+package com.wordpress.bmadi.moreinterface;
+ public class DemoLampu{
+    public static void main(String[] args){
+        LampuPijar lampu = new LampuPijar();
+        //lampu.setOn();
+        lampu.setOff();
+    }
+}
+
+Tagging Interface
+ Tangging Interface adalah interface dengan tanpa methode abstrak didalamnya mereka digunakan untuk
+ menambah type data untuk kelas yang mengimplementasikannya dan menjadi interface indukuntuk 
+ interfacel lain (terutama dengan multipeinheritance pada interface)
